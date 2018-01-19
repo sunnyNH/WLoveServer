@@ -1,6 +1,6 @@
 {
     "hostname": "127.0.0.1",
-    "user": "root",
+    "user": "",
     "password": "",
     "database": "",
     "encoding": "utf8mb4",
