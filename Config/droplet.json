@@ -14,8 +14,10 @@
 
     "//": "The type of logger to use for recording logs, warnings, errors, etc.",
     "//": "console: Vapor's default logger sends logs directly to the chosen console.",
+    
     "log": "console",
-
+    "cache": "redis",
+    
     "//": "The type of hasher to use for hashing messages.",
     "//": "crypto: Vapor's default hasher powered by OpenSSL (configure in crypto.json)",
     "//": "bcrypt: Performant BCrypt hashing implementation (configure in bcrypt.json)",

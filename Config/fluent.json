@@ -4,8 +4,8 @@
     "//": "sqlite: Persisted SQLite DB (configure with sqlite.json)",
     "//": "Other drivers are available through Vapor providers",
     "//": "https://github.com/search?q=topic:vapor-provider+topic:database",
-    "driver": "memory",
-    
+    "driver": "mysql",
+
     "//": "Naming convention to use for creating foreign id keys,",
     "//": "e.g., `user_id`",
     "//": "`camelCase` option is also available.",

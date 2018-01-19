@@ -1,3 +1,11 @@
 {
-	"foo": "foo-bar"
+    "foo": "foo-bar",
+    "EModel": {
+        "grant_type"    : "",
+        "client_id"     : "",
+        "client_secret" : "",
+        "eUrl"          : ""
+    },
+    "JPushKey"          : "",
+    "BaseUrl"           : ""
 }

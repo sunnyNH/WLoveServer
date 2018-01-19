@@ -1,25 +1,21 @@
-import App
+import Vapor
 
-/// We have isolated all of our App's logic into
-/// the App module because it makes our app
-/// more testable.
-///
-/// In general, the executable portion of our App
-/// shouldn't include much more code than is presented
-/// here.
-///
-/// We simply initialize our Droplet, optionally
-/// passing in values if necessary
-/// Then, we pass it to our App's setup function
-/// this should setup all the routes and special
-/// features of our app
-///
-/// .run() runs the Droplet's commands, 
-/// if no command is given, it will default to "serve"
 let config = try Config()
 try config.setup()
-
 let drop = try Droplet(config)
-try drop.setup()
 
+/// 基础api
+let api   = drop.grouped("api")
+let v1    = api.grouped("v1")
+let v2    = api.grouped("v2")
+let token = v1.grouped(TokenMiddleware())
+let token_v2 = v2.grouped(TokenMiddleware())
+
+
+drop.get{ (request) -> ResponseRepresentable in
+    return try drop.view.make("index.html")
+}
+/// 路由
+RouteTool.setUp()
 try drop.run()
+

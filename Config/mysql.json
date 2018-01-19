@@ -1,0 +1,8 @@
+{
+    "hostname": "127.0.0.1",
+    "user": "root",
+    "password": "",
+    "database": "",
+    "encoding": "utf8mb4",
+    "port": "3306"
+}
