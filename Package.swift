@@ -1,25 +1,23 @@
-// swift-tools-version:4.0
-
 import PackageDescription
 
 let package = Package(
     name: "WLoveServer",
-    products: [
-        .library(name: "App", targets: ["App"]),
-        .executable(name: "Run", targets: ["Run"])
+    targets: [
+        Target(name: "App"),
     ],
     dependencies: [
-        .package(url: "https://github.com/vapor/vapor.git", .upToNextMajor(from: "2.1.0")),
-        .package(url: "https://github.com/vapor/fluent-provider.git", .upToNextMajor(from: "1.2.0")),
+        .Package(url: "https://github.com/vapor/vapor.git", majorVersion: 2),
+        .Package(url: "https://github.com/vapor/redis-provider.git", majorVersion: 2),
+        .Package(url: "https://github.com/vapor/mysql-provider.git", majorVersion: 2),
+        .Package(url: "https://github.com/vapor/crypto.git", majorVersion: 2),
+        .Package(url: "https://github.com/vapor/validation.git", majorVersion: 1),
+        .Package(url: "https://github.com/vapor/leaf-provider.git", majorVersion: 1),
     ],
-    targets: [
-        .target(
-            name: "App",
-            dependencies: ["Vapor", "FluentProvider"],
-            exclude: ["Config", "Public", "Resources"]
-        ),
-        .target(name: "Run", dependencies: ["App"]),
-        .testTarget(name: "AppTests", dependencies: ["App", "Testing"])
-    ]
+    exclude: [
+        "Config",
+        "Database",
+        "Public",
+        "Resources",
+        ]
 )
 
