@@ -14,7 +14,7 @@ struct AliOSS {
     
     static let accessKeyId      : String = ""
     static let accessKeySecret  : String = ""
-    static let AliOSSUel        : String = ""
+    static let AliOSSUrl        : String = ""
     static func upload(_ image: Data,fileName: String) -> Bool {
         do {
             let date = self.getDate()
@@ -27,7 +27,7 @@ struct AliOSS {
                 "Date"          :date,
                 "Content-Type"  :"image/png"
             ]
-            let url = "\(AliOSSUel)/image/\(fileName)"
+            let url = "\(AliOSSUrl)/image/\(fileName)"
             let req = try drop.client.put(url, query: [:], Header, Body(image.makeBytes()))
             print(req)
             if req.status.statusCode == 200 {
@@ -50,7 +50,7 @@ struct AliOSS {
             "Date"          :date,
             "Content-Type"  :"image/png"
         ]
-        let url = "\(AliOSSUel)/image/\(fileName)"
+        let url = "\(AliOSSUrl)/image/\(fileName)"
         let req = try drop.client.get(url, Header)
         req.headers["Content-Type"] = "image/png"
         return req
@@ -77,7 +77,7 @@ struct AliOSS {
                 "Date"          :date,
                 "Content-Type"  :"video/mp4"
             ]
-            let url = "\(AliOSSUel)/video/\(fileName)"
+            let url = "\(AliOSSUrl)/video/\(fileName)"
             let req = try drop.client.put(url,Header,Body(videl.makeBytes()))
             print(req)
             if req.status.statusCode == 200 {
@@ -101,7 +101,7 @@ struct AliOSS {
             "Content-Type"  :"video/mp4"
         ]
         Header.merge(header)
-        let url = "\(AliOSSUel)/video/\(fileName)"
+        let url = "\(AliOSSUrl)/video/\(fileName)"
         let req = try drop.client.get(url,Header)
         return req
     }
