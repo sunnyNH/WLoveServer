@@ -10,4 +10,4 @@ import Vapor
 let router = EngineRouter.default()
 let api      : Router = router.grouped("api")
 let v1       : Router = api.grouped("v1")
-//let token    : Router = v1.grouped(TokenMiddleware())
+let token    : Router = v1.grouped(TokenMiddleware())
