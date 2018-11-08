@@ -1,4 +1,5 @@
 import FluentMySQL
+import Redis
 import Vapor
 
 /// Called before your application initializes.
@@ -26,7 +27,6 @@ public func configure(
     /// Register custom MySQL Config 123123niuhui
     let mysqlConfig = MySQLDatabaseConfig(hostname: "127.0.0.1", port: 3306, username: "root",password:"123123niuhui", database:"vapor3.0")
     services.register(mysqlConfig)
-    
     
     /// Configure migrations
     var migrations = MigrationConfig()
