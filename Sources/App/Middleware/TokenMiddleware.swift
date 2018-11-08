@@ -12,7 +12,7 @@ struct TokenMiddleware: Middleware {
     func respond(to request: Request, chainingTo next: Responder) throws -> EventLoopFuture<Response> {
         
         guard let token = try? request.query.get(String.self, at: "access_token") else {
-            return  try ResponseJSON<String>(state: .auth, message: "未登录", data: nil).encode(for: request)
+            return  try ResponseJSON<[String:String]>(state: .auth, message: "未登录", data:[:]).encode(for: request)
         }
         print(token)
         return try next.respond(to: request)

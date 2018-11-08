@@ -14,8 +14,8 @@ public func configure(
     
     /// Register routes to the router
     
-    try routes(router)
-    services.register(router, as: Router.self)
+    try routes(defRouter)
+    services.register(defRouter, as: Router.self)
     
     /// Register middleware
     var middlewares = MiddlewareConfig() // Create _empty_ middleware config
