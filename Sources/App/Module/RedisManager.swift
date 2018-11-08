@@ -6,7 +6,16 @@
 //
 
 import Vapor
-
+import Redis
 struct RedisManager {
+    
+    static let share: RedisManager = RedisManager()
+    
+    static func save(_ user: User?, request: Request) throws {
+        if let user = user {
+
+        
+        }
+    }
 
 }
